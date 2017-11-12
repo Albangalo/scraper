@@ -36,14 +36,19 @@ public class Main {
         }
 
 
-        // Prints link and name of each link in 2017 subjects page
+        // Prints link and name of each link in 2018 subjects page
         String subURL = "http://handbook.unimelb.edu.au/subjects/";
+        String subsURL = "https://handbook.unimelb.edu.au/subjects?page=";
 
         // get number of last page
-        System.out.println(getLastPage(subURL));
+        int lastpage = getLastPage(subURL);
+        System.out.println("last page is: " + lastpage);
 
-        // print contents of first page
-        //printLinks(subURL);
+        // print contents of each page
+        for (int i = 1; i <= lastpage; i++){
+            printSubs(subsURL + i);
+        }
+
 
 
         // Prints link and name of each link in 2016 archived subjects page
@@ -76,7 +81,7 @@ public class Main {
 
     }
 
-    static void printLinks(String url){
+    static void printSubs(String url){
         Document doc;
         try {
             doc = Jsoup.connect(url).get();
@@ -84,14 +89,11 @@ public class Main {
             Elements links = doc.select("a[href]");
             for (Element link : links){
                 String input = link.text();
-                try {
-                    //if(input.matches(".*[A-Z]{4}[0-9]{5}$")){
-                    //String s = (input.substring(link.text().length() - 9));
-                    String s = input;
+                if(input.matches(".*[A-Z]{4}[0-9]{5}$")){
+                    String s = (input.substring(link.text().length() - 9));
                     System.out.println("\nlink : " + link.attr("href"));
                     System.out.println("text : " + s);
-                }//}
-                catch (Exception e) {}
+                }
             }
         } catch (IOException e){
             e.printStackTrace();
