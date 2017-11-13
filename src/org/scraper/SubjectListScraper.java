@@ -50,7 +50,7 @@ public class SubjectListScraper {
         for (int i = 1; i <= lastpage; i++){
             printSubs(subURL, subURLpageExt + i, sb);
             if (i % 10 == 0)
-                System.out.println("page " + i + " out of " + lastpage " scraped");
+                System.out.println("page " + i + " out of " + lastpage + " scraped");
         }
         pw.write(sb.toString());
         pw.close();
