@@ -49,6 +49,7 @@ public class SubjectListScraper {
         // print contents of each page
         for (int i = 1; i <= lastpage; i++){
             printSubs(subURL, subURLpageExt + i, sb);
+            if (i % 10 == 0)
         }
         pw.write(sb.toString());
         pw.close();

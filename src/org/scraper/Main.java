@@ -14,6 +14,7 @@ import java.util.regex.Pattern;
 public class Main {
 
     private static String HANDBOOK_LINK = "https://handbook.unimelb.edu.au";
+    private static Scanner sc;
 
     public static enum Command {
         HELP,
@@ -26,8 +27,8 @@ public class Main {
         String title;
 
         boolean quit = false;
-        Scanner sc = new Scanner(System.in);
-        String input = "";
+        sc = new Scanner(System.in);
+        String input;
         Command cmd;
 
         while (!quit){
@@ -38,6 +39,7 @@ public class Main {
             switch (cmd){
                 case HELP       : help();       break;
                 case SUBTOCSV   : subToCSV();   break;
+                case SEARCH     : search();     break;
                 default: System.out.println("not valid command, try again");
             }
         }
@@ -94,4 +96,15 @@ public class Main {
         subScraper.writeSubjectsToCSV();
     }
 
+    /**
+     * prints details of searched subject if it exists
+     */
+    private static void search(){
+        System.out.print("enter subject code: ");
+        String subCode;
+        while ( !(subCode = sc.nextLine()).matches("[A-Z]{4}[0-9]{5}")){
+            System.out.println("subject code invalid, needs to be AAAANNNNN format");
+        }
+
+    }
 }
