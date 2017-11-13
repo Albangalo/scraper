@@ -5,21 +5,42 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
+import java.util.Arrays;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Main {
 
+    private static String HANDBOOK_LINK = "https://handbook.unimelb.edu.au";
+
+    public static enum Command {
+        HELP,
+        SUBTOCSV,
+        SEARCH
+    }
+
     public static void main(String[] args) throws FileNotFoundException{
         Document doc;
         String title;
 
-        SubjectListScraper subScraper = SubjectListScraper.getScraper();
-        subScraper.writeSubjectsToCSV();
+        boolean quit = false;
+        Scanner sc = new Scanner(System.in);
+        String input = "";
+        Command cmd;
+
+        while (!quit){
+            System.out.println("enter a command: (HELP for commands)");
+            input = sc.nextLine();
+            cmd = Command.valueOf(input);
+
+            switch (cmd){
+                case HELP       : help();       break;
+                case SUBTOCSV   : subToCSV();   break;
+                default: System.out.println("not valid command, try again");
+            }
+        }
 
         // Creates an HTML as String and parses into document
         /*String html = "<html><head><title>First parse</title></head>"
@@ -57,5 +78,20 @@ public class Main {
 
     }
 
+    /**
+     * prints all commands available in program
+     */
+    private static void help (){
+        System.out.println(Arrays.asList(Command.values()));
+    }
+
+    /**
+     * scrapes all current subjects from unimelb handbook and prints to a csv
+     * @throws FileNotFoundException
+     */
+    private static void subToCSV() throws FileNotFoundException{
+        SubjectListScraper subScraper = SubjectListScraper.getScraper(HANDBOOK_LINK);
+        subScraper.writeSubjectsToCSV();
+    }
 
 }

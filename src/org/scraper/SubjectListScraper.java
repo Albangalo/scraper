@@ -15,22 +15,25 @@ import java.util.regex.Pattern;
 public class SubjectListScraper {
 
     private static SubjectListScraper scraper;
+    private static String subjectURLext = "/subjects/";
+    private static String subURLpageExt = "/subjects?page=";
+    private String subURL;
 
-    private SubjectListScraper(){
+    private SubjectListScraper(String subURL){
+        this.subURL = subURL;
     }
 
-    public static SubjectListScraper getScraper(){
+    public static SubjectListScraper getScraper(String subURL){
         if (scraper == null){
-            scraper = new SubjectListScraper();
+            scraper = new SubjectListScraper(subURL);
         }
         return scraper;
     }
 
+    /**
+     *     Prints link and name of each link in 2018 subjects page
+     */
     public void writeSubjectsToCSV() throws FileNotFoundException {
-        // Prints link and name of each link in 2018 subjects page
-        String subURL = "https://handbook.unimelb.edu.au";
-        String subjectURLext = "/subjects/";
-        String subURLpageExt = "/subjects?page=";
 
         // get number of last page
         int lastpage = getLastPage(subURL + subjectURLext);
