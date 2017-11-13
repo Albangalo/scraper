@@ -7,6 +7,8 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.lang.annotation.Documented;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SubjectInfoScraper {
 
@@ -25,20 +27,46 @@ public class SubjectInfoScraper {
     }
 
     public void printSubDetails (String subURLExt){
-        Document doc;
+        /*Document doc;
         try {
             doc = Jsoup.connect(subURL + subURLExt).get();
 
             Elements links = doc.select("a[href]");
             for (Element link : links){
-                //if ()
                 System.out.println("\nlink : " + link.attr("href"));
                 System.out.println("text : " + link.text());
             }
         } catch (IOException e){
             e.printStackTrace();
-        }
+        }*/
+
+        System.out.println("timetable link for the subject is " + getTimetableURL(subURL + subURLExt));
     }
 
+    /**
+     * gets link to the timetable of input subject
+     * @param url
+     * @return
+     */
+    private static String getTimetableURL(String url){
+        Document doc;
+        String ttLink = "";
 
+        try {
+            doc = Jsoup.connect(url).get();
+            Elements links = doc.select("a[href]");
+            for (Element link : links){
+                String input = link.text();
+                if (input.matches(".*Timetable.*")){
+                    ttLink = link.attr("href");
+                }
+            }
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+
+        return ttLink;
+    }
+
+    
 }

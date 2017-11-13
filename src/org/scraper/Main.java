@@ -106,5 +106,7 @@ public class Main {
             System.out.println("subject code invalid, needs to be AAAANNNNN format");
         }
 
+        SubjectInfoScraper infoScraper = SubjectInfoScraper.getScraper(HANDBOOK_LINK);
+        infoScraper.printSubDetails( "/subjects/mult10001");
     }
 }

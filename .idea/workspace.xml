@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="262d33b1-e799-4ea5-a848-cf9404a20e15" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/scraper/SubjectListScraper.java" afterPath="$PROJECT_DIR$/src/org/scraper/SubjectListScraper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/scraper/Main.java" afterPath="$PROJECT_DIR$/src/org/scraper/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/scraper/SubjectInfoScraper.java" afterPath="$PROJECT_DIR$/src/org/scraper/SubjectInfoScraper.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,8 +18,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/scraper/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-647">
-              <caret line="41" column="54" lean-forward="true" selection-start-line="41" selection-start-column="54" selection-end-line="41" selection-end-column="54" />
+            <state relative-caret-position="1240">
+              <caret line="106" column="9" lean-forward="true" selection-start-line="106" selection-start-column="9" selection-end-line="106" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2741#2742#0" expanded="true" />
@@ -28,25 +29,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SubjectInfoScraper.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SubjectInfoScraper.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/scraper/SubjectInfoScraper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="29" column="50" lean-forward="false" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
+            <state relative-caret-position="441">
+              <caret line="70" column="4" lean-forward="false" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#370#371#0" expanded="true" />
-                <element signature="e#406#407#0" expanded="true" />
+                <element signature="e#434#435#0" expanded="true" />
+                <element signature="e#470#471#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SubjectListScraper.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SubjectListScraper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/scraper/SubjectListScraper.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="339">
-              <caret line="52" column="73" lean-forward="false" selection-start-line="52" selection-start-column="73" selection-end-line="52" selection-end-column="73" />
+              <caret line="46" column="26" lean-forward="true" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#598#599#0" expanded="true" />
@@ -59,8 +60,8 @@
       <file leaf-file-name="subjects.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/subjects.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="9" lean-forward="true" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
+            <state relative-caret-position="170">
+              <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -97,9 +98,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/subjects.csv" />
-        <option value="$PROJECT_DIR$/src/org/scraper/SubjectInfoScraper.java" />
-        <option value="$PROJECT_DIR$/src/org/scraper/Main.java" />
         <option value="$PROJECT_DIR$/src/org/scraper/SubjectListScraper.java" />
+        <option value="$PROJECT_DIR$/src/org/scraper/Main.java" />
+        <option value="$PROJECT_DIR$/src/org/scraper/SubjectInfoScraper.java" />
       </list>
     </option>
   </component>
@@ -254,12 +255,12 @@
       <workItem from="1508570054547" duration="12070000" />
       <workItem from="1510291340178" duration="5655000" />
       <workItem from="1510476014340" duration="7724000" />
-      <workItem from="1510495890825" duration="11677000" />
+      <workItem from="1510495890825" duration="13418000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37126000" />
+    <option name="totallyTimeSpent" value="38867000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="6" width="1049" height="1045" extended-state="0" />
@@ -367,8 +368,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/subjects.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="9" lean-forward="true" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
+        <state relative-caret-position="170">
+          <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -378,22 +379,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/scraper/SubjectInfoScraper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="29" column="50" lean-forward="false" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#370#371#0" expanded="true" />
-            <element signature="e#406#407#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/scraper/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-647">
-          <caret line="41" column="54" lean-forward="true" selection-start-line="41" selection-start-column="54" selection-end-line="41" selection-end-column="54" />
+        <state relative-caret-position="1240">
+          <caret line="106" column="9" lean-forward="true" selection-start-line="106" selection-start-column="9" selection-end-line="106" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2741#2742#0" expanded="true" />
@@ -405,11 +394,23 @@
     <entry file="file://$PROJECT_DIR$/src/org/scraper/SubjectListScraper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="339">
-          <caret line="52" column="73" lean-forward="false" selection-start-line="52" selection-start-column="73" selection-end-line="52" selection-end-column="73" />
+          <caret line="46" column="26" lean-forward="true" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#598#599#0" expanded="true" />
             <element signature="e#634#635#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/scraper/SubjectInfoScraper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="70" column="4" lean-forward="false" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#434#435#0" expanded="true" />
+            <element signature="e#470#471#0" expanded="true" />
           </folding>
         </state>
       </provider>
