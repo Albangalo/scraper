@@ -7,6 +7,7 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.lang.annotation.Documented;
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -27,20 +28,9 @@ public class SubjectInfoScraper {
     }
 
     public void printSubDetails (String subURLExt){
-        /*Document doc;
-        try {
-            doc = Jsoup.connect(subURL + subURLExt).get();
-
-            Elements links = doc.select("a[href]");
-            for (Element link : links){
-                System.out.println("\nlink : " + link.attr("href"));
-                System.out.println("text : " + link.text());
-            }
-        } catch (IOException e){
-            e.printStackTrace();
-        }*/
-
-        System.out.println("timetable link for the subject is " + getTimetableURL(subURL + subURLExt));
+        String ttURL = getTimetableURL(subURL + subURLExt);
+        System.out.println("timetable link for the subject is " + ttURL);
+        printSubTimetable(ttURL);
     }
 
     /**
@@ -68,5 +58,28 @@ public class SubjectInfoScraper {
         return ttLink;
     }
 
-    
+    /**
+     * Prints timetable of selected subject from timetable url
+     * @param timeTableURL
+     */
+    private static void printSubTimetable(String timeTableURL){
+        Document doc;
+        try {
+            doc = Jsoup.connect(timeTableURL).get();
+            System.out.println("connecting to " + timeTableURL);
+
+            for (Element timetable : doc.select("table.cyon_table") ) {
+                for (Element row : timetable.select("tr")) {
+                    Elements data = row.select("td");
+
+                    for (Element td : data) {
+                        System.out.print(td.text() + ", ");
+                    }
+                    System.out.println();
+                }
+            }
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
 }
