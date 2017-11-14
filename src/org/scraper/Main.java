@@ -1,5 +1,6 @@
 package org.scraper;
 
+import com.opencsv.CSVReader;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -12,6 +13,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Main {
+
+    private static final int SUBJECT_CODE_INDEX = 0;
+    private static final int SUBJECT_LINK_INDEX = 1;
 
     private static String HANDBOOK_LINK = "https://handbook.unimelb.edu.au";
     private static Scanner sc;
@@ -101,12 +105,48 @@ public class Main {
      */
     private static void search(){
         System.out.print("enter subject code: ");
-        String subCode;
-        while ( !(subCode = sc.nextLine()).matches("[A-Z]{4}[0-9]{5}")){
-            System.out.println("subject code invalid, needs to be AAAANNNNN format");
-        }
+        String subCode = "";
+        String subLink = "";
+        CSVReader reader = null;
+        boolean scan = true;
 
+
+        //while ( !subCode.matches("[A-Z]{4}[0-9]{5}")){
+
+        //
+        while (scan){
+
+            System.out.println("enter a subject code in AAAA##### format");
+            subCode = sc.nextLine();
+
+            // if subject code is in correct format, check if in subjects list
+            if (subCode.matches("[A-Z]{4}[0-9]{5}")){
+                try {
+                    // open up subjects csv
+                    reader = new CSVReader(new FileReader("subjects.csv"));
+                    String[] line;
+                    // scan each line of subjects list, if it is target subject then return link as string
+                    while ((line = reader.readNext()) != null){
+                        //System.out.println("line[0] is " + line[0] + " line[1] is " + line[1]);
+                        if (line[SUBJECT_CODE_INDEX].equals(subCode)){
+                            subLink = line[SUBJECT_LINK_INDEX];
+                            System.out.println("subLink is " + subLink);
+                            scan = false;
+                            break;
+                        }
+                    }
+                } catch (IOException e){
+                    e.printStackTrace();
+                }
+
+                if (scan){
+                    System.out.println("subject was not found, try another code");
+                }
+            }
+
+        }
         SubjectInfoScraper infoScraper = SubjectInfoScraper.getScraper(HANDBOOK_LINK);
-        infoScraper.printSubDetails( "/subjects/mult10001");
+        //infoScraper.printSubDetails( "/subjects/acct10001");
+        infoScraper.printSubDetails(subLink);
     }
 }
