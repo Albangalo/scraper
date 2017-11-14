@@ -28,6 +28,7 @@ public class SubjectInfoScraper {
     }
 
     public void printSubDetails (String subURLExt){
+        System.out.println("scraping from " + subURL + subURLExt);
         String ttURL = getTimetableURL(subURL + subURLExt);
         System.out.println("timetable link for the subject is " + ttURL);
         printSubTimetable(ttURL);
@@ -44,6 +45,7 @@ public class SubjectInfoScraper {
 
         try {
             doc = Jsoup.connect(url).get();
+            //System.out.println(doc.toString());
             Elements links = doc.select("a[href]");
             for (Element link : links){
                 String input = link.text();
