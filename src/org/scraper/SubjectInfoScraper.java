@@ -11,6 +11,8 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+//ABPL90120
+
 public class SubjectInfoScraper {
 
     private String subURL;
@@ -30,6 +32,9 @@ public class SubjectInfoScraper {
     public void printSubDetails (String subURLExt){
         System.out.println("scraping from " + subURL + subURLExt);
         String ttURL = getTimetableURL(subURL + subURLExt);
+        if (ttURL.equals("")){
+            System.out.println("timetable not available yet");
+        }
         System.out.println("timetable link for the subject is " + ttURL);
         printSubTimetable(ttURL);
     }

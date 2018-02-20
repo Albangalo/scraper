@@ -48,11 +48,6 @@ public class Main {
             }
         }
 
-        // Creates an HTML as String and parses into document
-        /*String html = "<html><head><title>First parse</title></head>"
-                + "<body><p>Parsed HTML into a doc.</p></body></html>";
-        doc = Jsoup.parse(html);
-        System.out.println("something: " + doc);*/
 
         // Prints link and name of each link in 2016 archived subjects page
         /*try {
