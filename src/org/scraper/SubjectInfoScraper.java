@@ -11,8 +11,6 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-//ABPL90120
-
 public class SubjectInfoScraper {
 
     private String subURL;
@@ -29,14 +27,26 @@ public class SubjectInfoScraper {
         return scraper;
     }
 
+    /**
+     * prints timetable of subject if it exists
+     * @param subURLExt
+     */
     public void printSubDetails (String subURLExt){
         System.out.println("scraping from " + subURL + subURLExt);
+
+        String reqURL = getRequirementsURL(subURL + subURLExt);
+        printSubReqs(subURL + reqURL);
+
         String ttURL = getTimetableURL(subURL + subURLExt);
         if (ttURL.equals("")){
             System.out.println("timetable not available yet");
         }
-        System.out.println("timetable link for the subject is " + ttURL);
-        printSubTimetable(ttURL);
+        else {
+            System.out.println("timetable link for the subject is " + ttURL);
+            printSubTimetable(ttURL);
+        }
+
+
     }
 
     /**
@@ -66,6 +76,32 @@ public class SubjectInfoScraper {
     }
 
     /**
+     * gets link to Eligibility and Requirements of input subject
+     * @param url
+     * @return
+     */
+    private static String getRequirementsURL(String url){
+        Document doc;
+        String reqLink = "";
+
+        try {
+            doc = Jsoup.connect(url).get();
+            Elements links = doc.select("a[href]");
+            for (Element link : links){
+                String input = link.text();
+                if (input.matches(".*requirements.*")){
+                    reqLink = link.attr("href");
+                }
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return reqLink;
+    }
+
+    /**
      * Prints timetable of selected subject from timetable url
      * @param timeTableURL
      */
@@ -86,6 +122,22 @@ public class SubjectInfoScraper {
                 }
             }
         } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    private static void printSubReqs(String requirementsURL){
+        Document doc;
+
+        try{
+            doc = Jsoup.connect(requirementsURL).get();
+            System.out.println("connecting to " + requirementsURL);
+
+            /*for (Element Prereq : doc.select("prerequisites")){
+                System.out.println(Prereq.text());
+            }*/
+        }
+        catch (Exception e){
             e.printStackTrace();
         }
     }

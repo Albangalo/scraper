@@ -105,10 +105,6 @@ public class Main {
         CSVReader reader = null;
         boolean scan = true;
 
-
-        //while ( !subCode.matches("[A-Z]{4}[0-9]{5}")){
-
-        //
         while (scan){
 
             System.out.println("enter a subject code in AAAA##### format");
